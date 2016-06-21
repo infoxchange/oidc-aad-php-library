@@ -33,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "infoxchange\\oidc-aad-php-library\\": "src/"
+            "remotelearner\\aadsample\\": "src/"
         }
     }
 }
