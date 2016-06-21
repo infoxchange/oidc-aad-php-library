@@ -1,5 +1,5 @@
 {
-    "name": "remotelearner/aadsample",
+    "name": "infoxchange/oidc-aad-php-library",
     "description": "Azure Active Directory Authentication Code Sample for PHP",
     "license": "MIT",
     "keywords": [
@@ -18,9 +18,13 @@
             "email": "james.mcquillan@remote-learner.net",
             "homepage": "http://www.remote-learner.net",
             "role": "Developer"
+        },
+        {
+            "name": "Peter Wang",
+            "role": "Developer"
         }
     ],
-    "version": "0.9.0",
+    "version": "0.9.1",
     "require": {
         "php": ">=5.4.0"
     },
@@ -29,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "remotelearner\\aadsample\\": "src/"
+            "infoxchange\\oidc-aad-php-library\\": "src/"
         }
     }
 }
