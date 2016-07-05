@@ -106,6 +106,12 @@ class HttpClient implements \remotelearner\aadsample\HttpClientInterface {
 
         $returned = curl_exec($ch);
 
+        if ($returned === false || curl_errno($ch)) {
+            $message = 'Curl error: ' . curl_error($ch) . ' (errno: ' . curl_errno($ch) . ')';
+            curl_close($ch);
+            throw new AADSAMPLEException($message);
+        }
+        
         curl_close($ch);
         return $returned;
     }
