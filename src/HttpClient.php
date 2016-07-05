@@ -34,29 +34,6 @@ use remotelearner\aadsample\AADSAMPLEException;
  */
 class HttpClient implements \remotelearner\aadsample\HttpClientInterface {
     /**
-    * Set curl http_proxy
-    *
-    * @var string
-    */
-    protected $http_proxy;
-
-    /**
-     * Will set additional curl options
-     *
-     * @param array $curlOptions
-     * @return void
-     */
-    public function __construct ($curlOptions = []) {
-        if (!is_array($curlOptions) || empty($curlOptions)) {
-            return;
-        }
-
-        if (isset($curlOptions['http_proxy'])) {
-            $this->http_proxy = $curlOptions['http_proxy'];
-        }
-    }
-
-    /**
      * POST request.
      *
      * @param string $url The URL to request.
@@ -105,8 +82,8 @@ class HttpClient implements \remotelearner\aadsample\HttpClientInterface {
             CURLOPT_MAXREDIRS => 12,
         ];
 
-        if (!empty($this->http_proxy)) {
-            $curlopts[CURLOPT_PROXY] = $this->http_proxy;
+        if (!empty(getenv('HTTP_PROXY'))) {
+            $curlopts[CURLOPT_PROXY] = getenv('HTTP_PROXY');
         }
 
         $method = strtolower($method);
